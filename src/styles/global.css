@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@theme {
+  --color-salon-primary: #D4AF37;
+  --color-salon-secondary: #F3E5D8;
+  --color-salon-dark: #2C2C2C;
+  --color-salon-light: #FAFAFA;
+  --color-salon-accent: #E5C39C;
+  
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Lato', sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+html, body {
+  background-color: var(--color-salon-light);
+  color: var(--color-salon-dark);
+  font-family: var(--font-sans);
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+}
