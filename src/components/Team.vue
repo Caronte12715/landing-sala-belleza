@@ -1,29 +1,52 @@
+<script setup>
+const team = [
+  {
+    name: 'Isabella M.',
+    role: 'Directora Creativa',
+    image: 'https://images.unsplash.com/photo-1595959183082-7b570b7e08e2?q=80&w=600&auto=format&fit=crop'
+  },
+  {
+    name: 'Sofía R.',
+    role: 'Especialista en Color',
+    image: 'https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=600&auto=format&fit=crop'
+  },
+  {
+    name: 'Elena G.',
+    role: 'Estilista Senior',
+    image: 'https://images.unsplash.com/photo-1580618672591-eb180b1a973f?q=80&w=600&auto=format&fit=crop'
+  }
+];
+</script>
+
 <template>
-  <section id="equipo" class="py-24 relative overflow-hidden bg-[#0A000A]">
-    <div class="max-w-6xl mx-auto px-6 relative z-10">
-      <div class="text-center mb-16">
-        <h2 class="text-4xl md:text-5xl font-playfair text-white mb-4">Artistas de la <span class="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-pink-300">Belleza</span></h2>
-        <p class="text-rose-100/70 font-light">Conoce al equipo de profesionales detrás de cada transformación.</p>
+  <section id="equipo" class="py-32 bg-salon-light relative">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="text-center mb-20 reveal-up">
+        <span class="text-salon-primary font-sans font-medium tracking-[0.3em] uppercase text-xs mb-4 block">
+          Las Artistas
+        </span>
+        <h2 class="font-serif text-5xl md:text-6xl text-salon-dark">Conoce a las <span class="italic font-light text-salon-primary">Creadoras</span></h2>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-        <div v-for="(member, idx) in team" :key="idx" class="group text-center">
-          <div class="relative w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden border-4 border-rose-500/20 group-hover:border-rose-400 transition-colors duration-500">
-            <img :src="member.image" :alt="member.name" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 transform group-hover:scale-110" />
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div 
+          v-for="(member, index) in team" 
+          :key="index"
+          class="flex flex-col items-center group cursor-pointer reveal-up"
+          :class="`delay-${(index + 1) * 100}`"
+        >
+          <div class="w-64 h-64 md:w-72 md:h-72 rounded-full overflow-hidden mb-8 relative shadow-xl shadow-salon-dark/5 p-2 border border-salon-primary/20 group-hover:border-salon-primary transition-colors duration-500">
+            <div class="w-full h-full rounded-full overflow-hidden relative">
+              <div class="absolute inset-0 bg-salon-primary/10 mix-blend-multiply group-hover:opacity-0 transition-opacity duration-500 z-10 pointer-events-none"></div>
+              <img :src="member.image" :alt="member.name" class="w-full h-full object-cover transform scale-105 group-hover:scale-100 transition-transform duration-700" />
+            </div>
           </div>
-          <h3 class="text-xl font-bold text-white mb-1">{{ member.name }}</h3>
-          <p class="text-rose-300 text-sm mb-3">{{ member.role }}</p>
-          <p class="text-gray-400 text-sm font-light px-4">{{ member.bio }}</p>
+          <h3 class="font-serif text-3xl text-salon-dark mb-2 group-hover:text-salon-primary transition-colors">{{ member.name }}</h3>
+          <p class="font-sans text-salon-dark/60 font-medium tracking-[0.2em] uppercase text-xs">{{ member.role }}</p>
         </div>
       </div>
+      
     </div>
   </section>
 </template>
-
-<script setup>
-const team = [
-  { name: 'Elena Torres', role: 'Directora Creativa / Colorista', bio: 'Especialista en rubios y corrección de color con 10 años de experiencia.', image: 'https://images.unsplash.com/photo-1595959183082-7b570b7e08e2?auto=format&fit=crop&q=80&w=400' },
-  { name: 'Laura Gómez', role: 'Hair Stylist', bio: 'Experta en cortes de vanguardia y tratamientos de recuperación capilar.', image: 'https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&q=80&w=400' },
-  { name: 'Ana Martínez', role: 'Makeup Artist', bio: 'Maquilladora profesional especializada en novias y eventos de gala.', image: 'https://images.unsplash.com/photo-1516975080661-46bfa2c22401?auto=format&fit=crop&q=80&w=400' }
-];
-</script>

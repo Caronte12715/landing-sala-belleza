@@ -1,20 +1,19 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
 
 @theme {
-  --color-salon-primary: #D4AF37;
-  --color-salon-secondary: #F3E5D8;
-  --color-salon-dark: #2C2C2C;
-  --color-salon-light: #FAFAFA;
-  --color-salon-accent: #E5C39C;
+  --color-salon-primary: #D4A3A3; /* Blush Pink */
+  --color-salon-secondary: #FDFBF9; /* Pearl White */
+  --color-salon-dark: #2A2421; /* Deep Chocolate */
+  --color-salon-light: #F4F1EA; /* Soft Silk */
+  --color-salon-accent: #B77D70; /* Rose Gold */
   
   --font-serif: 'Playfair Display', serif;
-  --font-sans: 'Lato', sans-serif;
+  --font-sans: 'Outfit', sans-serif;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
-
 html, body {
-  background-color: var(--color-salon-light);
+  background-color: var(--color-salon-secondary);
   color: var(--color-salon-dark);
   font-family: var(--font-sans);
   scroll-behavior: smooth;
@@ -22,4 +21,38 @@ html, body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);
+}
+
+@layer utilities {
+  .reveal-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal-scale {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: all 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .is-revealed {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  
+  .delay-100 { transition-delay: 100ms; }
+  .delay-200 { transition-delay: 200ms; }
+  .delay-300 { transition-delay: 300ms; }
+  .delay-400 { transition-delay: 400ms; }
+  .delay-500 { transition-delay: 500ms; }
 }

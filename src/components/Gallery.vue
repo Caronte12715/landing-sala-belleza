@@ -1,34 +1,55 @@
+<script setup>
+const images = [
+  'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=800&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1562322140-8baeececf3df?q=80&w=800&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1600948836101-f9ffda59d250?q=80&w=800&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=800&auto=format&fit=crop'
+];
+</script>
+
 <template>
-  <section id="galeria" class="py-24 relative overflow-hidden bg-[#0A000A]">
-    <div class="absolute inset-0 bg-gradient-to-tr from-[#1E0B16] via-transparent to-[#1E0B16] opacity-60"></div>
-    
-    <div class="max-w-7xl mx-auto px-6 relative z-10">
-      <div class="text-center mb-16">
-        <h2 class="text-4xl md:text-5xl font-playfair text-white mb-4">Nuestro <span class="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-pink-300">Arte</span></h2>
-        <p class="text-rose-100/70 max-w-2xl mx-auto font-light">Transformaciones reales que destacan la belleza única de cada uno de nuestros clientes.</p>
+  <section id="galeria" class="py-32 bg-salon-secondary relative">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="flex flex-col md:flex-row justify-between items-end mb-20 reveal-up">
+        <div>
+          <span class="text-salon-primary font-sans font-medium tracking-[0.3em] uppercase text-xs mb-4 block">
+            Nuestro Trabajo
+          </span>
+          <h2 class="font-serif text-5xl md:text-6xl text-salon-dark">Lookbook</h2>
+        </div>
+        <p class="font-sans text-salon-dark/60 font-light max-w-md mt-6 md:mt-0">
+          Inspiración y resultados reales. Cada look es creado con precisión y amor por los detalles.
+        </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div v-for="(img, idx) in gallery" :key="idx" class="group relative rounded-2xl overflow-hidden aspect-[4/5] cursor-pointer">
-          <div class="absolute inset-0 bg-rose-500/20 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-500 z-10"></div>
-          <img :src="img.src" :alt="img.title" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20 flex flex-col justify-end p-6">
-            <h3 class="text-xl font-playfair text-white mb-1 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">{{ img.title }}</h3>
-            <p class="text-rose-200/80 text-sm transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">{{ img.desc }}</p>
+      <!-- Masonry asimétrico -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-20">
+        
+        <div class="flex flex-col gap-8 md:gap-20">
+          <div class="relative overflow-hidden rounded-[40px] rounded-br-sm group reveal-up aspect-[4/5]">
+            <div class="absolute inset-0 bg-salon-primary/20 mix-blend-multiply group-hover:opacity-0 transition-opacity duration-700 z-10 pointer-events-none"></div>
+            <img :src="images[0]" class="w-full h-full object-cover transform scale-105 group-hover:scale-100 transition-transform duration-1000" />
+          </div>
+          <div class="relative overflow-hidden rounded-[40px] rounded-tl-sm group reveal-up aspect-square w-3/4 ml-auto">
+            <div class="absolute inset-0 bg-salon-primary/20 mix-blend-multiply group-hover:opacity-0 transition-opacity duration-700 z-10 pointer-events-none"></div>
+            <img :src="images[1]" class="w-full h-full object-cover transform scale-105 group-hover:scale-100 transition-transform duration-1000" />
           </div>
         </div>
+
+        <div class="flex flex-col gap-8 md:gap-20 md:mt-32">
+          <div class="relative overflow-hidden rounded-[40px] rounded-tr-sm group reveal-up aspect-square w-4/5">
+            <div class="absolute inset-0 bg-salon-primary/20 mix-blend-multiply group-hover:opacity-0 transition-opacity duration-700 z-10 pointer-events-none"></div>
+            <img :src="images[2]" class="w-full h-full object-cover transform scale-105 group-hover:scale-100 transition-transform duration-1000" />
+          </div>
+          <div class="relative overflow-hidden rounded-[40px] rounded-bl-sm group reveal-up aspect-[3/4]">
+            <div class="absolute inset-0 bg-salon-primary/20 mix-blend-multiply group-hover:opacity-0 transition-opacity duration-700 z-10 pointer-events-none"></div>
+            <img :src="images[3]" class="w-full h-full object-cover transform scale-105 group-hover:scale-100 transition-transform duration-1000" />
+          </div>
+        </div>
+
       </div>
+      
     </div>
   </section>
 </template>
-
-<script setup>
-const gallery = [
-  { src: 'https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&q=80&w=800', title: 'Balayage Premium', desc: 'Coloración y matiz' },
-  { src: 'https://images.unsplash.com/photo-1600948836101-f9ffda59d250?auto=format&fit=crop&q=80&w=800', title: 'Corte Bob Asimétrico', desc: 'Estilismo moderno' },
-  { src: 'https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&q=80&w=800', title: 'Maquillaje de Noche', desc: 'Eventos especiales' },
-  { src: 'https://images.unsplash.com/photo-1516975080661-46bfa2c22401?auto=format&fit=crop&q=80&w=800', title: 'Tratamiento Keratina', desc: 'Restauración profunda' },
-  { src: 'https://images.unsplash.com/photo-1595476108010-b4d1f10d5e43?auto=format&fit=crop&q=80&w=800', title: 'Manicura Rusa', desc: 'Uñas esculpidas' },
-  { src: 'https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&q=80&w=800', title: 'Ondas Surferas', desc: 'Peinado casual' }
-];
-</script>
